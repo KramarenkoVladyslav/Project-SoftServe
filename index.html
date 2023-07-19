@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>SOFTSERVE | Products catalog</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark">
+	<nav class="navbar navbar-light bg-dark">
+	<div class="container-fluid d-flex justify-content-center">
+		<a class="btn btn-success" type="submit" data-bs-toggle="modal" data-bs-target="#createProductModal">Create product</a>
+        <a class="btn btn-danger d-none" id="deleteAllButton">Delete All</a>
+		<form class="d-flex" id="searchForm">
+			<input class="form-control me-2 bg-dark text-light text-center" type="search" placeholder="Find your product" aria-label="Search" id="searchInput">
+			<button class="btn btn-dark" type="submit">Search</button>
+			<button class="btn btn-dark" id="backButton">Back</button>
+		</form>
+	</div>
+	</nav>
+	<div class="container">
+    <h1 class="title text-light text-center text-uppercase mt-5 mb-0">Products:</h1>
+    <p id="totalPrice" class="text-light text-center mt-1">Total Price: $0</p>
+    <div class="text-center mb-3">
+        <div class="dropdown">
+            <button class="btn btn-sort text-light dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                Sort by
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                <li><a class="dropdown-item" href="#" id="sortLowToHigh">Low to High</a></li>
+                <li><a class="dropdown-item" href="#" id="sortHighToLow">High to Low</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row mt-4 product-element">
+        
+    </div>
+</div>
+
+
+<div class="modal fade" id="createProductModal" tabindex="-1" aria-labelledby="createProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title text-light" id="createProductModalLabel">Create Product</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" name="creationForm" id="creationForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="imageInput" class="form-label text-light">Image</label>
+                                <input name="image" type="file" class="form-control bg-dark text-light" id="imageInput">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="nameInput" class="form-label text-light">Name</label>
+                                <input name="name" type="text" class="form-control bg-dark text-light" id="nameInput" placeholder="Enter product name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="priceInput" class="form-label text-light">Price</label>
+                                <input name="price" type="number" class="form-control bg-dark text-light" id="priceInput" placeholder="Enter product price">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button type="reset" class="btn btn-secondary w-100 text-light">Clear</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-success w-100 text-light">Create</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true"
+    data-product-id="">
+    <div class="modal-dialog">
+        <div class="modal-content bg-dark">
+            <div class="modal-header">
+                <h5 class="modal-title text-light" id="editProductModalLabel">Edit Product</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="#" name="editForm" id="editForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="mb-3">
+                                <label for="editImageInput" class="form-label text-light">Image</label>
+                                <input name="image" type="file" class="form-control bg-dark text-light"
+                                    id="editImageInput">
+                            </div>
+                            <img id="editImagePreview" class="product-image" alt="Product">
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="editNameInput" class="form-label text-light">Name</label>
+                                <input name="name" type="text" class="form-control bg-dark text-light"
+                                    id="editNameInput" placeholder="Enter product name">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <div class="mb-3">
+                                <label for="editPriceInput" class="form-label text-light">Price</label>
+                                <input name="price" type="number" class="form-control bg-dark text-light"
+                                    id="editPriceInput" placeholder="Enter product price">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <button type="reset" class="btn btn-secondary w-100 text-light">Clear</button>
+                        </div>
+                        <div class="col-6">
+                            <button type="submit" class="btn btn-success w-100 text-light" id="updateButton">Update</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Connect script JS files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

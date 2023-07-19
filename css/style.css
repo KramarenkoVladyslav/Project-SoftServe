@@ -1,0 +1,101 @@
+.form-control.bg-dark::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar{
+  padding: 0;
+}
+
+#deleteAllButton {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+}
+
+.btn-success {
+  width: 100%;
+  border-radius: 0;
+  border-top:  0;
+  border-right: 0;
+  border-left: 0;
+}
+
+.container-fluid{
+  gap: 15px; 
+  padding: 0;
+  margin: 0 auto;
+}
+
+.product-card{
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.card-body{
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; 
+  margin: 15px 0 15px 0;
+}
+
+.product-image{
+  width: auto;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 15px;
+  object-fit: contain;
+}
+
+.product-name{
+  font-size: 32px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-price{
+  font-size: 24px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-buttons{
+  display: flex;
+  justify-content: center; 
+  gap: 30px; 
+  width: 100%;
+}
+
+.btn-primary{
+  width: 100px;
+}
+
+.btn-danger{
+  width: 100px;
+}
+
+/*-----------   MODAL CREATE PRODUCT  -----------*/ 
+.btn-close-white {
+    color: #fff;
+}
+
+.dropdown-menu {
+    background-color: var(--bs-dark);
+    color: white;
+}
+
+.dropdown-menu a {
+    color: white;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a:focus {
+    background-color: var(--bs-white);
+    color: var(--bs-dark);
+}
+
+
+
